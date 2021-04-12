@@ -274,6 +274,6 @@ int main()
             }
         }
     }
-    delete arr;
+    delete[]arr;
     return 0;
 }
