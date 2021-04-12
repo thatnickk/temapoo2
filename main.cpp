@@ -10,9 +10,11 @@ class Card{
         string data_expirare;
         int CVV;
         double credit;
+        static int nrCarduri;
 
     public:
         Card(){
+            ++nrCarduri;
         }
         Card(string nr = "0", string name = "unnamed", string exp = "1.1.1", int code = 0, double cred = 0){
             nrCard = nr;
@@ -20,6 +22,7 @@ class Card{
             data_expirare = exp;
             CVV = code;
             credit = cred;
+            ++nrCarduri;
         }
         Card(const Card& c){
             this->nrCard = c.nrCard;
@@ -27,6 +30,7 @@ class Card{
             this->data_expirare = c.data_expirare;
             this->CVV = c.CVV;
             this->credit = c.credit;
+            ++nrCarduri;
         }
         ~Card(){
             cout<<"distrus Card \n";
@@ -202,6 +206,8 @@ class Card_premium : public Card_standard{
             cout<<"Cashback: "<<cashback<<'%'<<'\n';
         }
 };
+
+int Card::nrCarduri = 0;
 
 int main()
 {
